@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Tab Title -->
+    <title>Paper Scraper</title>
+    <!-- View Port Size -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Materialize - Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+    <!-- Materialize - Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/style/style.css">
+  </head>
+
+  <body>
+  
+    <!-- Nav Bar -->
+    <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper">
+          <a href="" class="brand-logo">Paper Scraper</a>
+          <a href="" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="#">A</a></li>
+            <li><a href="#">B</a></li>
+            <li><a href="#">C</a></li>
+          </ul>
+          <ul class="side-nav" id="mobile-demo">
+            <li><a href="#">A</a></li>
+            <li><a href="#">B</a></li>
+            <li><a href="#">C</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+
+    <!-- Page Content -->
+    <main> 
+
+      <!-- Site Info Container -->
+      <div class="container">
+        <ul class="collection with-header">
+          <li class="collection-header"><h4>Welcome to Paper Scraper!</h4></li>
+          <li class="collection-item">This application lets you read comment on news articles that were scrapped from the web.</li>
+          <li class="collection-item"><div>Click the <i class="material-icons">language</i> to view an article.</div></li>
+          <li class="collection-item"><div>Click the <i class="material-icons">thumbs_up_down</i> to read/write comments.</div></li>
+        </ul>
+      </div>
+
+
+      <!-- Render All Articles -->
+      <div class="container">
+        {{{body}}}
+      </div>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="page-footer">
+      <div class="footer-copyright">
+        <div class="container">
+        © Author cannot claim copyright... All article data was web scraped from: 
+        <a class="grey-text text-lighten-4" href="#!">News Source</a>
+        </div>
+      </div>
+    </footer>
+
+
+
+    <!-- Link in jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+
+    <!-- Materialize - Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+
+    <!-- Basic Page JavaScript for Repsonsiveness -->
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
+    
+  </body>
+
+</html>

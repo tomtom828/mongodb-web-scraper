@@ -1,0 +1,83 @@
+{{!-- Templating for all Articles  --}}
+
+<ul class="collapsible" data-collapsible="accordion">
+
+  <!-- Article Drop Down -->
+  <li>
+    <div class="collapsible-header"><i class="material-icons">language</i>{{Title}}</div>
+    <div class="collapsible-body" style="background-color: white;">
+      <p>
+        {{Content}}
+      </p>
+    </div>
+  </li>
+
+
+  <!-- Add Comments Drop Down -->
+  <li>
+    <div class="collapsible-header"><i class="material-icons">comment</i>Add a Comment</div>
+    <div class="collapsible-body" style="background-color: white;">
+
+      <form action="user/comment" method="post" style="background-color: white;">
+
+        <!-- Author Name Input -->
+        <div class="row">
+          <div class="input-field col s2"></div>
+          <div class="input-field col s8">
+            <input id="author_name" type="text" class="validate">
+            <label for="author_name">Your Name:</label>
+          </div>
+        </div>
+        
+        <!-- Comment Input -->
+        <div class="row">
+          <div class="input-field col s2"></div>
+          <div class="input-field col s8">
+            <textarea id="comment_box" class="materialize-textarea"></textarea>
+            <label for="comment_box">Your Reaction:</label>
+          </div>
+        </div>
+
+          <!-- Submit Button -->
+          <div class="row">
+            <div class="input-field col s2"></div>
+            <div class="input-field col s8">
+            <center><input class="btn" type="submit" value="Submit"></center>
+            </div>
+          </div>
+        
+      </form>
+
+    </div>
+  </li>
+
+
+  <!-- View Comments Drop Down -->
+  <li>
+    <div class="collapsible-header"><i class="material-icons">thumbs_up_down</i>View Comments</div>
+    <div class="collapsible-body" style="background-color: white;">
+    
+      {{!-- Check if the article has comments --}}
+      {{#if Comment}}
+
+        {{!-- Article has comments so iterate over them  --}}
+        <ul class="collection">
+          {{#each Comment}}
+            <li class="collection-item">
+              {{author}}
+              <br>
+              {{comment}}
+            </li>
+          {{/each}}
+        </ul>
+      
+      {{!-- No comments, so display message --}}
+      {{else}}
+        <p>No Comments Yet</p>
+      {{/if}}
+          
+      
+    </div>
+  </li>
+
+</ul>
