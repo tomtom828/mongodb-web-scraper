@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Tab Title -->
+    <title>Paper Scraper</title>
+    <!-- View Port Size -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Materialize - Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+    <!-- Materialize - Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../public/assets/style/style.css">
+  </head>
+
+  <body>
+  
+    <!-- Nav Bar -->
+    <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper">
+          <a href="" class="brand-logo">Paper Scraper</a>
+          <a href="" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="#">A</a></li>
+            <li><a href="#">B</a></li>
+            <li><a href="#">C</a></li>
+          </ul>
+          <ul class="side-nav" id="mobile-demo">
+            <li><a href="#">A</a></li>
+            <li><a href="#">B</a></li>
+            <li><a href="#">C</a></li>
+          </ul>
+        </div>
+      </nav>
+  </div>
+
+    <!-- Page Content -->
+    <main> 
+
+      <!-- Site Info Container -->
+      <div class="container">
+        <ul class="collection with-header">
+          <li class="collection-header"><h4>Welcome to Paper Scraper!</h4></li>
+          <li class="collection-item">This application lets you read comment on news articles that were scrapped from the web.</li>
+          <li class="collection-item"><div>Click the <i class="material-icons">language</i> to view an article.</div></li>
+          <li class="collection-item"><div>Click the <i class="material-icons">thumbs_up_down</i> to read/write comments.</div></li>
+        </ul>
+      </div>
+
+      <!-- Article Container... List all Articles Inside Here -->
+      <div class="container">
+
+        <!-- Article 1 -->
+        <ul class="collapsible" data-collapsible="accordion">
+
+          <!-- Article Drop Down -->
+          <li>
+            <div class="collapsible-header"><i class="material-icons">language</i>Article Title</div>
+            <div class="collapsible-body" style="background-color: white;">
+              <p>
+                It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+              </p>
+            </div>
+          </li>
+
+          <!-- Comment on Articles Form-->
+          <li>
+            <div class="collapsible-header"><i class="material-icons">comment</i>Add a Comment</div>
+            <div class="collapsible-body" style="background-color: white;">
+
+              <form action="user/comment" method="post" style="background-color: white;">
+
+                <!-- Author Name Input -->
+                <div class="row">
+                  <div class="input-field col s2"></div>
+                  <div class="input-field col s8">
+                    <input id="author_name" type="text" class="validate">
+                    <label for="author_name">Your Name:</label>
+                  </div>
+                </div>
+                
+                <!-- Comment Input -->
+                <div class="row">
+                  <div class="input-field col s2"></div>
+                  <div class="input-field col s8">
+                    <textarea id="comment_box" class="materialize-textarea"></textarea>
+                    <label for="comment_box">Your Reaction:</label>
+                  </div>
+                </div>
+
+                  <!-- Submit Button -->
+                  <div class="row">
+                    <div class="input-field col s2"></div>
+                    <div class="input-field col s8">
+                    <center><input class="btn" type="submit" value="Submit"></center>
+                    </div>
+                  </div>
+                
+              </form>
+
+            </div>
+          </li>
+
+          <!-- View Comments Drop Down -->
+          <li>
+            <div class="collapsible-header"><i class="material-icons">thumbs_up_down</i>View Comments</div>
+            <div class="collapsible-body" style="background-color: white;">
+
+                  
+              <!-- Comments  -->
+              <ul class="collection">
+
+                <li class="collection-item">
+                  Author 1 Name
+                  <br>
+                  Auther 1 Comment
+                </li>
+
+                <li class="collection-item">
+                  Author 2 Name
+                  <br>
+                  Auther 2 Comment
+                </li>
+
+                <li class="collection-item">
+                  Author 3 Name
+                  <br>
+                  Auther 3 Comment
+                </li>
+
+                <li class="collection-item">
+                  Author 4 Name
+                  <br>
+                  Auther 4 Comment
+                </li>
+
+              </ul>
+
+
+            </div>
+          </li>
+
+        </ul>
+
+
+
+
+
+        <!-- Article 2 -->
+        <ul class="collapsible" data-collapsible="accordion">
+          <!-- Article Drop Down -->
+          <li>
+            <div class="collapsible-header"><i class="material-icons">language</i>Article Title</div>
+            <div class="collapsible-body" style="background-color: white;">
+              <p>
+                It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+              </p>
+            </div>
+          </li>
+          <!-- Comment on Articles Form-->
+          <li>
+            <div class="collapsible-header"><i class="material-icons">comment</i>Add a Comment</div>
+            <div class="collapsible-body" style="background-color: white;"></div>
+          </li>
+          <!-- Comments Drop Down -->
+          <li>
+            <div class="collapsible-header"><i class="material-icons">thumbs_up_down</i>View Comments</div>
+            <div class="collapsible-body" style="background-color: white;">
+              <p>
+                No Comments Yet
+              </p>
+            </div>
+          </li>
+        </ul>
+
+
+
+        <!-- Article 3 -->
+        <ul class="collapsible" data-collapsible="accordion">
+          <!-- Article Drop Down -->
+          <li>
+            <div class="collapsible-header"><i class="material-icons">language</i>Article Title</div>
+            <div class="collapsible-body" style="background-color: white;">
+              <p>
+                It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+              </p>
+            </div>
+          </li>
+          <!-- Comment on Articles Form-->
+          <li>
+            <div class="collapsible-header"><i class="material-icons">comment</i>Add a Comment</div>
+            <div class="collapsible-body" style="background-color: white;"></div>
+          </li>
+          <!-- Comments Drop Down -->
+          <li>
+            <div class="collapsible-header"><i class="material-icons">thumbs_up_down</i>View Comments</div>
+            <div class="collapsible-body" style="background-color: white;">
+              <p>
+                No Comments Yet
+              </p>
+            </div>
+          </li>
+        </ul>
+
+
+
+      </div>
+
+    </main>
+
+
+
+    <!-- Footer -->
+    <footer class="page-footer">
+      <div class="footer-copyright">
+        <div class="container">
+        © Author cannot claim copyright... All article data was web scraped from: 
+        <a class="grey-text text-lighten-4" href="#!">News Source</a>
+        </div>
+      </div>
+    </footer>
+
+
+
+
+    <!-- Link in jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+
+    <!-- Materialize - Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+
+    <!-- Basic Page JavaScript for Repsonsiveness -->
+    <script type="text/javascript" src="../public/assets/javascript/app.js"></script>
+    
+  </body>
+
+</html>
