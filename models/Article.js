@@ -18,6 +18,12 @@ var ArticleSchema = new Schema({
     type: String,
     required: true
   },
+  
+  // Summary of Article
+  summary: {
+    type: String,
+    required: true
+  },
 
   // Create a relation with the Comment model
   comment: {
