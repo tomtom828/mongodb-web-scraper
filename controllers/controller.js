@@ -12,7 +12,26 @@ var Article = require('../models/Article.js');
 
 // Index Home Page Render
 router.get('/', function (req, res){
-  res.render('index');
+
+  // Query MongoDB for all article entries
+  Article.find({})
+
+    // But also populate all of the comments associated with the articles.
+    .populate('note')
+
+    // Then, send them to the handlebars template to be rendered
+    .exec(function(err, doc){
+      // log any errors
+      if (err){
+        console.log(err);
+      } 
+      // or send the doc to the browser as a json object
+      else {
+        var hbsObject = {articles: doc}
+        res.render('index', hbsObject);
+      }
+    });
+
 });
 
 
