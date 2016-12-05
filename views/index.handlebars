@@ -31,7 +31,7 @@
           <div class="row">
             <div class="input-field col s2"></div>
             <div class="input-field col s8">
-              <input id="author_name" type="text" class="validate">
+              <input id="author_name" name="name" type="text" class="validate">
               <label for="author_name">Your Name:</label>
             </div>
           </div>
@@ -40,7 +40,7 @@
           <div class="row">
             <div class="input-field col s2"></div>
             <div class="input-field col s8">
-              <textarea id="comment_box" class="materialize-textarea"></textarea>
+              <textarea id="comment_box" name="comment" class="materialize-textarea"></textarea>
               <label for="comment_box">Your Reaction:</label>
             </div>
           </div>
@@ -70,11 +70,25 @@
           {{!-- Article has comments so iterate over them  --}}
           <ul class="collection">
             {{#each comments}}
+            
               <li class="collection-item">
-                {{author}}
+
+                {{!-- Add Author Name --}}
+                <b>{{author}}</b> 
+
+                {{!-- Add a Delete Button --}}
+                <span class="badge">
+                  <form action="remove/comment/{{_id}}" method="post">
+                    <input class="btn-small" type="submit" value="Delete" style="color: white; background-color: red; border-color: red;">
+                  </form>
+                </span>
+
                 <br>
+
+                {{!-- Add the Content of the Comment --}}
                 {{content}}
-              </li>
+
+              </li> 
             {{/each}}
           </ul>
         

@@ -26,10 +26,10 @@ var ArticleSchema = new Schema({
   },
 
   // Create a relation with the Comment model
-  comment: {
+  comments: [{
     type: Schema.Types.ObjectId,
     ref: 'Comment'
-  }
+  }]
 
 });
 

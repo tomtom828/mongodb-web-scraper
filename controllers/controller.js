@@ -9,15 +9,23 @@ var cheerio = require('cheerio'); // for web-scraping
 var Comment = require('../models/Comment.js');
 var Article = require('../models/Article.js');
 
-
-// Index Home Page Render
+// Index Page Render (first visit to the site)
 router.get('/', function (req, res){
+
+  // Scrape data
+  res.redirect('/scrape');
+
+});
+
+
+// Articles Page Render
+router.get('/articles', function (req, res){
 
   // Query MongoDB for all article entries
   Article.find({})
 
     // But also populate all of the comments associated with the articles.
-    .populate('note')
+    .populate('comments')
 
     // Then, send them to the handlebars template to be rendered
     .exec(function(err, doc){
@@ -29,13 +37,14 @@ router.get('/', function (req, res){
       else {
         var hbsObject = {articles: doc}
         res.render('index', hbsObject);
+        // res.json(hbsObject)
       }
     });
 
 });
 
 
-// Web Scrape route
+// Web Scrape Route
 router.get('/scrape', function(req, res) {
 
   // First, grab the body of the html with request
@@ -61,32 +70,116 @@ router.get('/scrape', function(req, res) {
 
 
         // Error handling to ensure there are no empty scrapes
-        if(result.title !== "" && result.summary !== ""){
+        if(result.title !== "" &&  result.summary !== ""){
 
-          // Using the Article model, create a new entry (note that the "result" object has the exact same key-value pairs of the model)
-          var entry = new Article (result);
+          // Only add the entry to the database if is not already there
+          Article.count({ title: result.title}, function (err, test){
+            // If the count is 0, then the entry is unique and should be saved
+            if(test == 0){
 
-          // Save the entry to MongoDB
-          entry.save(function(err, doc) {
-            // log any errors
-            if (err) {
-              console.log(err);
-            } 
-            // or log the doc
-            else {
-              console.log(doc);
+              // Using the Article model, create a new entry (note that the "result" object has the exact same key-value pairs of the model)
+              var entry = new Article (result);
+
+              // Save the entry to MongoDB
+              entry.save(function(err, doc) {
+                // log any errors
+                if (err) {
+                  console.log(err);
+                } 
+                // or log the doc that was saved to the DB
+                else {
+                  console.log(doc);
+                }
+              });
+
+            }
+            // Log that scrape is working, just the content was already in the Database
+            else{
+              console.log('Redundant Content. Not saved to DB.')
             }
           });
-
+        }
+        // Log that scrape is working, just the content was missing parts
+        else{
+          console.log('Empty Content. Not Saved to DB.')
         }
 
     });
   });
-  // Tell the browser scraping completed.
-  res.send("Scrape Complete");
+  // Redirect to the Articles Page
+  res.redirect("/articles");
 });
 
 
+// Add a Comment Route
+router.post('/add/comment/:id', function (req, res){
+
+  // Collect article id
+  var articleId = req.params.id;
+  
+  // Collect Author Name
+  var commentAuthor = req.body.name;
+
+  // Collect Comment Content
+  var commentContent = req.body.comment;
+
+  // "result" object has the exact same key-value pairs of the "Comment" model
+  var result = {
+    author: commentAuthor,
+    content: commentContent
+  };
+
+  // Using the Comment model, create a new comment entry
+  var entry = new Comment (result);
+
+  // Save the entry to the database
+  entry.save(function(err, doc) {
+    // log any errors
+    if (err) {
+      console.log(err);
+    } 
+    // Or, relate the comment to the article
+    else {
+      // Push the new Comment to the list of comments in the article
+      Article.findOneAndUpdate({'_id': articleId}, {$push: {'comments':doc._id}}, {new: true})
+      // execute the above query
+      .exec(function(err, doc){
+        // log any errors
+        if (err){
+          console.log(err);
+        } else {
+          // or refresh the page
+          res.redirect('/articles');
+        }
+      });
+    }
+  });
+
+});
+
+
+
+
+// Delete a Comment Route
+router.post('/remove/comment/:id', function (req, res){
+
+  // Collect comment id
+  var commentId = req.params.id;
+
+  // Find and Delete the Comment using the Id
+  Comment.findByIdAndRemove(commentId, function (err, todo) {  
+    
+    if (err) {
+      console.log(err);
+    } 
+    // Or, remove the comment
+      else {
+        res.redirect('/articles');
+    }
+
+  });
+
+});
 
 
 // Export Router to Server.js
