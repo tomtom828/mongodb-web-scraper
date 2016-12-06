@@ -25,7 +25,7 @@
       <div class="collapsible-header"><i class="material-icons">comment</i>Add a Comment</div>
       <div class="collapsible-body" style="background-color: white;">
 
-        <form action="add/comment/{{_id}}" method="post" style="background-color: white;">
+        <form id="form-add-{{_id}}" action="add/comment/{{_id}}" method="post" style="background-color: white;">
 
           <!-- Author Name Input -->
           <div class="row">
@@ -49,7 +49,7 @@
             <div class="row">
               <div class="input-field col s2"></div>
               <div class="input-field col s8">
-              <center><input class="btn" type="submit" value="Submit"></center>
+              <center><input class="btn add-comment-button" data-id="{{_id}}" type="submit" value="Submit"></center>
               </div>
             </div>
           
@@ -78,8 +78,8 @@
 
                 {{!-- Add a Delete Button --}}
                 <span class="badge">
-                  <form action="remove/comment/{{_id}}" method="post">
-                    <input class="btn-small" type="submit" value="Delete" style="color: white; background-color: red; border-color: red;">
+                  <form id="form-delete-{{_id}}" action="remove/comment/{{_id}}" method="post">
+                    <input class="btn-small delete-comment-button" data-id="{{_id}}" type="submit" value="Delete" style="color: white; background-color: red; border-color: red;">
                   </form>
                 </span>
 

@@ -111,7 +111,7 @@ router.get('/scrape', function(req, res) {
 });
 
 
-// Add a Comment Route
+// Add a Comment Route - **API**
 router.post('/add/comment/:id', function (req, res){
 
   // Collect article id
@@ -148,8 +148,8 @@ router.post('/add/comment/:id', function (req, res){
         if (err){
           console.log(err);
         } else {
-          // or refresh the page
-          res.redirect('/articles');
+          // Send Success Header
+          res.sendStatus(200);
         }
       });
     }
@@ -172,9 +172,9 @@ router.post('/remove/comment/:id', function (req, res){
     if (err) {
       console.log(err);
     } 
-    // Or, remove the comment
-      else {
-        res.redirect('/articles');
+    else {
+      // Send Success Header
+      res.sendStatus(200);
     }
 
   });
