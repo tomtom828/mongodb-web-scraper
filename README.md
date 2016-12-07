@@ -1,4 +1,7 @@
-# Paper Scraper (aka Onion Peeler)
+# :newspaper: Paper Scraper (aka Onion Peeler)
+
+/play trololo
+
 A `Node.js` &amp; `MongoDB` webapp that web-scrapes news data from [The Onion](http://www.theonion.com/) and allows users to comment about what they have read. Users can also delete unwanted comments.
 
 Please check out the deployed version in Heroku [here](http://paper-scraper.herokuapp.com/)!
@@ -14,12 +17,12 @@ And for webscraping, the app uses `request` and `cheerio` node packages. All web
 
 ## Cloning down the repo
 If you wish to clone the app down to your local machine...
-1. Ensure that you have MongoDB set up on your laptop
-  * An amazing repo to get you started with that can be found [here](https://github.com/dannyvassallo/mongo_lesson).
-2. Once you are set up, `cd` into this repo and run `npm install`.
-3. Then open another bash or terminal window and run `mongod`
-4. Run the script with `node server.js`.
-5. Navigate to `localhost:3000` in your browser.
+  1. Ensure that you have MongoDB set up on your laptop
+    * An amazing repo to get you started with that can be found [here](https://github.com/dannyvassallo/mongo_lesson).
+  2. Once you are set up, `cd` into this repo and run `npm install`.
+  3. Then open another bash or terminal window and run `mongod`
+  4. Run the script with `node server.js`.
+  5. Navigate to `localhost:3000` in your browser.
 
 
 ## Screenshots
