@@ -21,8 +21,8 @@ router.get('/', function (req, res){
 // Articles Page Render
 router.get('/articles', function (req, res){
 
-  // Query MongoDB for all article entries
-  Article.find({})
+  // Query MongoDB for all article entries (sort newest to top, assuming Ids increment)
+  Article.find().sort({_id: -1})
 
     // But also populate all of the comments associated with the articles.
     .populate('comments')
