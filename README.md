@@ -1,4 +1,4 @@
-# :newspaper: Paper Scraper (aka Onion Peeler) /play trololo
+# :newspaper: Paper Scraper (aka Onion Peeler) :trollface:
 A `Node.js` &amp; `MongoDB` webapp that web-scrapes news data from [The Onion](http://www.theonion.com/) and allows users to comment about what they have read. Users can also delete unwanted comments.
 
 Please check out the deployed version in Heroku [here](http://paper-scraper.herokuapp.com/)!
@@ -39,4 +39,4 @@ If you wish to clone the app down to your local machine...
 ![Delete Comment](/screenshots/delete-comment.png)
 
 #### Note that the web scraping occurs on the `/scrape` route.
-#### Hitting the index route (`/`), express redirects to `/scrape` and then `/articles` routes
+#### On visiting the index route, `/`, express redirects to `/scrape` and then `/articles` routes
