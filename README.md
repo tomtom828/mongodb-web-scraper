@@ -9,7 +9,7 @@ On the backend, the app uses `express` to serve routes and `mongoose` to interac
 
 On the frontend, the app uses `handlebars` for templating each article and `materialize` as a styling framework. The app also uses `jQuery` and `AJAX` to help with making post requests.
 
-And for webscraping, the app uses `request` and `cheerio` node packages. All webscrapping code can be found in the `controllers` folder.
+And for webscraping, the app uses the `request` and `cheerio` node packages. All webscrapping code can be found in the `controllers.js` file.
 
 
 ## Cloning down the repo
